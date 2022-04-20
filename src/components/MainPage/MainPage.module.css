@@ -1,7 +1,9 @@
 .main{
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items:flex-start;
+    min-height: 100vh;
+    width: 1007px;
+    justify-content: space-between;
+    margin: 0 auto;
 }

@@ -1,0 +1,18 @@
+.btns{
+    display: flex;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select{
+    width: 80px;
+padding: 14px;
+background: #FFFFFF;
+border: 1px solid #121212;
+box-sizing: border-box;
+border-radius: 12px;
+}

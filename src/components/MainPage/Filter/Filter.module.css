@@ -1,0 +1,36 @@
+.main {
+    padding: 20px;
+    width: 365px;
+    height: 419px;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.serch {
+    width: 307px;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #121212;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.btn {
+    border: 1px solid #52228C;
+    box-sizing: border-box;
+    border-radius: 24px;
+    padding: 8px 18px;
+}
+
+.sort {
+    width: 307px;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #121212;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
