@@ -10,27 +10,9 @@
     justify-content: space-around;
 }
 
-.serch {
-    width: 307px;
-    height: 52px;
-    background: #FFFFFF;
-    border: 1px solid #121212;
-    box-sizing: border-box;
-    border-radius: 12px;
-}
-
 .btn {
     border: 1px solid #52228C;
     box-sizing: border-box;
     border-radius: 24px;
     padding: 8px 18px;
-}
-
-.sort {
-    width: 307px;
-    height: 52px;
-    background: #FFFFFF;
-    border: 1px solid #121212;
-    box-sizing: border-box;
-    border-radius: 12px;
 }

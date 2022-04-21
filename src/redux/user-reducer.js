@@ -47,7 +47,8 @@ const usersReducer = (state = initialState, action) => {
         case SERCH_BY_NAME:
             return{
                 ...state,
-                serchName:action.payload
+                serchName:action.payload,
+                users:action.newUsers
             }
         default:
             return state;
@@ -69,8 +70,8 @@ export const changeUsersPerPage = (amount) =>
 export const setGender = (gender) =>
 ({type:SET_GENGER, payload:gender})
 
-export const serchByName = (name) =>
-({type:SERCH_BY_NAME, payload:name})
+export const serchByName = (name, users) =>
+({type:SERCH_BY_NAME, payload:name, newUsers:users })
 
 
 
