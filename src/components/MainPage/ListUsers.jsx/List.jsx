@@ -16,18 +16,11 @@ const List = () => {
   const usersPerPage = useSelector(state => state.mainPage.usersPerPage)
   const gender = useSelector(state => state.mainPage.gender)
   const serchName = useSelector(state => state.mainPage.serchName)
-
-
-
-
-
-
-
-
+  const sort = useSelector(state => state.mainPage.sort)
 
   useEffect(()=>{
       dispatch(getUsers(page,usersPerPage,gender))
-  }, [page,usersPerPage,gender,serchName])
+  }, [page,usersPerPage,gender,serchName,sort])
 
   return (
     <div>

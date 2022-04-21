@@ -4,6 +4,11 @@ const CHANGE_PAGE = 'CHANGE_PAGE'
 const CHANGE_USERS_PER_PAGE = 'CHANGE_USERS_PER_PAGE'
 const SET_GENGER = 'SET_GENGER'
 const SERCH_BY_NAME = 'SERCH_BY_NAME'
+const SORT_BY_AGE_UP = 'SORT_BY_AGE_UP'
+const SORT_BY_AGE_DOWN = 'SORT_BY_AGE_DOWN'
+const SORT_BY_NAME_UP = 'SORT_BY_NAME_UP'
+const SORT_BY_NAME_DOWN = 'SORT_BY_NAME_DOWN'
+
 
 const initialState = {
     users:[],
@@ -12,7 +17,8 @@ const initialState = {
     usersPerPage:50,
     maxUsers:500,
     gender:'male',
-    serchName:''
+    serchName:'',
+    sort:''
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -50,6 +56,30 @@ const usersReducer = (state = initialState, action) => {
                 serchName:action.payload,
                 users:action.newUsers
             }
+        case SORT_BY_AGE_UP:
+            return{
+                ...state,
+                users:action.payload,
+                sort:action.sort
+            }
+         case SORT_BY_AGE_DOWN:
+            return{
+                ...state,
+                users:action.payload,
+                sort:action.sort
+            }
+        case SORT_BY_NAME_UP:
+            return{
+                ...state,
+                users:action.payload,
+                sort:action.sort
+            }
+        case SORT_BY_NAME_DOWN:
+            return{
+                ...state,
+                users:action.payload,
+                sort:action.sort
+            }
         default:
             return state;
     }
@@ -72,6 +102,19 @@ export const setGender = (gender) =>
 
 export const serchByName = (name, users) =>
 ({type:SERCH_BY_NAME, payload:name, newUsers:users })
+
+export const sortByAgeUp = (newUsers, sort) =>
+({type:SORT_BY_AGE_UP, payload:newUsers , sort:sort})
+
+export const sortByAgeDown = (newUsers, sort) =>
+({type:SORT_BY_AGE_DOWN, payload:newUsers , sort:sort})
+
+export const sortByNameUp = (newUsers, sort) =>
+({type:SORT_BY_NAME_UP, payload:newUsers , sort:sort})
+
+export const sortByNameDown = (newUsers, sort) =>
+({type:SORT_BY_NAME_DOWN, payload:newUsers , sort:sort})
+
 
 
 
