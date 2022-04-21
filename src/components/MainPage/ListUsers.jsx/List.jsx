@@ -3,7 +3,7 @@ import UserCard from './UserCard/UserCard';
 import { useDispatch , useSelector } from 'react-redux';
 import { getUsers } from './../../../redux/actions/users';
 import Pagination from './../Pagination/Pagination';
-import style from './List.module.css'
+import style from './List.module.css';
 
 
 const List = () => {
@@ -15,12 +15,19 @@ const List = () => {
   const page = useSelector(state => state.mainPage.page)
   const usersPerPage = useSelector(state => state.mainPage.usersPerPage)
   const gender = useSelector(state => state.mainPage.gender)
-  const name = useSelector(state => state.mainPage.name)
+  // const name = useSelector(state => state.mainPage.serchName)
+
+
+
+
+
+
+
 
 
   useEffect(()=>{
-      dispatch(getUsers(page,usersPerPage,gender,name))
-  }, [page,usersPerPage,gender,name])
+      dispatch(getUsers(page,usersPerPage,gender))
+  }, [page,usersPerPage,gender])
 
   return (
     <div>
@@ -28,6 +35,8 @@ const List = () => {
       {isFetching === false?users.map(user =><UserCard user={user} 
       key = {user.login.salt}/>)
       :<div className={style.loading}>Loading...</div>}
+
+      
 
      <Pagination/>
     </div>

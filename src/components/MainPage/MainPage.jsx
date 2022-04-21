@@ -1,10 +1,9 @@
 import React from 'react'
+
 import List from './ListUsers.jsx/List'
-import style from './MainPage.module.css'
 import Filter from './Filter/Filter';
 
-
-
+import style from './MainPage.module.css'
 
 const MainPage = () => {
 
@@ -12,7 +11,6 @@ const MainPage = () => {
     <div className={style.main}>
       <Filter/>
       <List/>
-     
     </div>
   )
 }

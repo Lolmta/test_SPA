@@ -24,7 +24,7 @@ const Pagination = () => {
             <div className={style.btns}>
                  {
             pageNumbers.map(number => (
-                    <div>
+                    <div key={number}>
                         <div onClick={() => paginate(number)}>
                             {number}
                         </div>

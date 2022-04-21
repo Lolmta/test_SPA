@@ -5,9 +5,6 @@ const CHANGE_USERS_PER_PAGE = 'CHANGE_USERS_PER_PAGE'
 const SET_GENGER = 'SET_GENGER'
 const SERCH_BY_NAME = 'SERCH_BY_NAME'
 
-
-
-
 const initialState = {
     users:[],
     isFetching: true,
@@ -15,7 +12,7 @@ const initialState = {
     usersPerPage:50,
     maxUsers:500,
     gender:'male',
-    name:''
+    serchName:''
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -50,7 +47,7 @@ const usersReducer = (state = initialState, action) => {
         case SERCH_BY_NAME:
             return{
                 ...state,
-                name:action.payload
+                serchName:action.payload
             }
         default:
             return state;

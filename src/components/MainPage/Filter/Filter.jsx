@@ -11,8 +11,7 @@ const Filter = () => {
     const setMale = () => dispatch(setGender('male'))
     const setFemale = () => dispatch(setGender('female'))
 
-    const name = useSelector(state => state.mainPage.name)
-
+    const name = useSelector(state => state.mainPage.serchName)
 
    console.log(name)
 
@@ -29,7 +28,7 @@ const Filter = () => {
             </div>
 
             <div>
-                <button className={style.btn } onClick={setMale}>Male</button>
+                <button className={style.btn} onClick={setMale}>Male</button>
                 <button className={style.btn} onClick={setFemale}>Female</button>
             </div>
 

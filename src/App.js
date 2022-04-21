@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
+import UserPage from './components/UserPage/UserPage';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <BrowserRouter>
      <Routes>
        <Route path='/' element={<MainPage />}/>
+       <Route path='/user' element={<UserPage />}/>
      </Routes>
    </BrowserRouter>
 

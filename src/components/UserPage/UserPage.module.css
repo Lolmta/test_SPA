@@ -1,0 +1,17 @@
+.changeable_info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
