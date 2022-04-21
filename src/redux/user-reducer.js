@@ -10,6 +10,7 @@ const SORT_BY_NAME_UP = 'SORT_BY_NAME_UP'
 const SORT_BY_NAME_DOWN = 'SORT_BY_NAME_DOWN'
 const SORT_BY_CITY_UP = 'SORT_BY_CITY_UP'
 const SORT_BY_CITY_DOWN = 'SORT_BY_CITY_DOWN'
+const AGE_RANGE = 'AGE_RANGE'
 
 const initialState = {
     users:[],
@@ -93,6 +94,12 @@ const usersReducer = (state = initialState, action) => {
                 users:action.payload,
                 sort:action.sort
             }
+        case AGE_RANGE:
+            return{
+                ...state,
+                users:action.payload,
+                sort:action.range
+            }
         default:
             return state;
     }
@@ -133,6 +140,11 @@ export const sortByCityUp = (newUsers, sort) =>
 
 export const sortByCityDown = (newUsers, sort) =>
 ({type:SORT_BY_CITY_DOWN, payload:newUsers , sort:sort})
+
+export const sortByAgeRange = (newUsers, range) =>
+({type:SORT_BY_CITY_DOWN, payload:newUsers , range:range})
+
+
 
 
 
