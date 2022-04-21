@@ -8,5 +8,3 @@ export const getUsers = (page = 1 , userPerPage = 10 , gender = 'male'  ) => {
         dispatch(setUsers(response.data))
     }
 }
-
-//&gender=female

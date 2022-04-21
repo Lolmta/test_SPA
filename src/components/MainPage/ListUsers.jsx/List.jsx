@@ -15,15 +15,6 @@ const List = () => {
   const page = useSelector(state => state.mainPage.page)
   const usersPerPage = useSelector(state => state.mainPage.usersPerPage)
   const gender = useSelector(state => state.mainPage.gender)
-  // const name = useSelector(state => state.mainPage.serchName)
-
-
-
-
-
-
-
-
 
   useEffect(()=>{
       dispatch(getUsers(page,usersPerPage,gender))
@@ -35,9 +26,6 @@ const List = () => {
       {isFetching === false?users.map(user =><UserCard user={user} 
       key = {user.login.salt}/>)
       :<div className={style.loading}>Loading...</div>}
-
-      
-
      <Pagination/>
     </div>
   )

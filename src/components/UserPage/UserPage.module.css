@@ -1,7 +1,17 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+}
+
 .changeable_info {
     display: flex;
     flex-direction: column;
-    width: 30%;
     justify-content: space-between;
 }
 
@@ -14,4 +24,33 @@
     width: 200px;
     height: 200px;
     border-radius: 100px;
+}
+
+.btn {
+    border-radius: 12px;
+    border: none;
+    padding: 12px 24px;
+    width: 200px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+
+.del {
+    background-color: #E33030;
+}
+
+.back {
+    background: #52228C;
+    margin-bottom: 60px;
+}
+
+.back::before {
+    content: '\2039';
+}
+
+.img_card {
+    margin-right: 40px;
 }
