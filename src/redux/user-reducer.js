@@ -14,13 +14,13 @@ const AGE_RANGE = 'AGE_RANGE'
 
 const initialState = {
     users:[],
+    filtredUsers:[],
     isFetching: true,
     page:1,
     usersPerPage:50,
     maxUsers:500,
     gender:'male',
-    serchName:'',
-    sort:''
+    sort:'',
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -50,13 +50,13 @@ const usersReducer = (state = initialState, action) => {
         case SET_GENGER:
             return{
                 ...state,
-                gender:action.payload
+                gender:action.payload,
+                filtredUsers:[]
             }
         case SERCH_BY_NAME:
             return{
                 ...state,
-                serchName:action.payload,
-                users:action.newUsers
+                filtredUsers:action.payload
             }
         case SORT_BY_AGE_UP:
             return{
@@ -97,8 +97,8 @@ const usersReducer = (state = initialState, action) => {
         case AGE_RANGE:
             return{
                 ...state,
-                users:action.payload,
-                sort:action.range
+                filtredUsers:action.payload,
+                range:action.range
             }
         default:
             return state;
@@ -120,8 +120,8 @@ export const changeUsersPerPage = (amount) =>
 export const setGender = (gender) =>
 ({type:SET_GENGER, payload:gender})
 
-export const serchByName = (name, users) =>
-({type:SERCH_BY_NAME, payload:name, newUsers:users })
+export const serchByName = (users) =>
+({type:SERCH_BY_NAME, payload:users })
 
 export const sortByAgeUp = (newUsers, sort) =>
 ({type:SORT_BY_AGE_UP, payload:newUsers , sort:sort})
@@ -141,8 +141,8 @@ export const sortByCityUp = (newUsers, sort) =>
 export const sortByCityDown = (newUsers, sort) =>
 ({type:SORT_BY_CITY_DOWN, payload:newUsers , sort:sort})
 
-export const sortByAgeRange = (newUsers, range) =>
-({type:SORT_BY_CITY_DOWN, payload:newUsers , range:range})
+export const sortByAgeRange = (newUsers) =>
+({type:AGE_RANGE, payload:newUsers})
 
 
 
