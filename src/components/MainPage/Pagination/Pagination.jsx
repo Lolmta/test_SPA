@@ -1,26 +1,21 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { changePage, changeUsersPerPage } from '../../../redux/user-reducer'
-
-
+import { changePage } from '../../../redux/user-reducer'
 
 import style from './Pagination.module.css'
+import PageSelect from './../PageSelect/PageSelect';
 
 const Pagination = () => {
 
     const dispatch = useDispatch()
+    const paginate = number => dispatch(changePage(number))
 
     const pageNumbers = []
     const usersPerPage = useSelector(state => state.mainPage.usersPerPage)
     const maxUsers = useSelector(state => state.mainPage.maxUsers)
     const currentPage = useSelector(state => state.mainPage.page)
-
-
-    const paginate = number => dispatch(changePage(number))
-
-
-
+    
     for (let i = 1; i < Math.ceil(maxUsers / usersPerPage); i++) {
         pageNumbers.push(i)
     }
@@ -59,18 +54,7 @@ const Pagination = () => {
                     )
                 }
             </div>
-
-            <select
-                onChange={(e) =>
-                    dispatch(changeUsersPerPage(e.target.value))}
-                name="select"
-                className={style.select}
-            >
-                <option value="10">10</option>
-                <option value='50' selected>50</option>
-                <option value="100">100</option>
-                <option value='500'>All</option>
-            </select>
+            <PageSelect/>
         </div>
     )
 }

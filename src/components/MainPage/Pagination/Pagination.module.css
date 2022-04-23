@@ -12,16 +12,6 @@
     font-family: 'Poppins';
 }
 
-.select {
-    width: 80px;
-    height: 37px;
-    padding-left: 14px;
-    background: #FFFFFF;
-    border: 1px solid #121212;
-    box-sizing: border-box;
-    border-radius: 12px;
-}
-
 .page {
     width: 37px;
     height: 37px;

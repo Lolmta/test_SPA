@@ -18,46 +18,47 @@ const Select = () => {
     const filtredUsers = useSelector(state => state.mainPage.filtredUsers)
 
     const [value, setValue] =useState('')
-   
 
+    let whoNeedToSort = filtredUsers.length === 0 ? users: filtredUsers;
+    let newUsers = []
+   
     if(value === 'ageUp'){
-        const usersSortedByAgeUp = (filtredUsers.length === 0 ? users: filtredUsers).sort(function (a, b) {
-            return a.dob.age - b.dob.age
-        })
-        dispatch(sortByAgeUp(usersSortedByAgeUp, value))
+        newUsers = (whoNeedToSort).sort((a, b) => a.dob.age - b.dob.age)
+        dispatch(sortByAgeUp(newUsers, value))
     } 
 
     if(value === 'ageDown'){
-        const usersSortedByAgeDown = (filtredUsers.length === 0 ? users: filtredUsers).sort(function (a, b) {
-            return b.dob.age - a.dob.age
-        })
-        dispatch(sortByAgeDown(usersSortedByAgeDown, value))
+        newUsers = (whoNeedToSort).sort( (a, b) => b.dob.age - a.dob.age)
+        dispatch(sortByAgeDown(newUsers, value))
     } 
  
     if(value === 'nameABC'){
-        let newUsers = (filtredUsers.length === 0 ? users: filtredUsers).sort((a,b) =>  a.name.first > b.name.first ? 1 : -1 )
+        newUsers = (whoNeedToSort).sort((a,b) =>  a.name.first > b.name.first ? 1 : -1 )
         dispatch(sortByNameUp(newUsers, value))
     }
 
     if(value === 'nameCBA'){
-        let newUsers = (filtredUsers.length === 0 ? users: filtredUsers).sort((a,b) =>  a.name.first > b.name.first ? -1 : 1 )
+        newUsers = (whoNeedToSort).sort((a,b) =>  a.name.first > b.name.first ? -1 : 1 )
         dispatch(sortByNameDown(newUsers, value))
     }
 
     if(value === 'cityABC'){
-        let newUsers =(filtredUsers.length === 0 ? users: filtredUsers).sort((a,b) =>  a.location.city > b.location.city ? 1 : -1 )
+        newUsers =(whoNeedToSort).sort((a,b) =>  a.location.city > b.location.city ? 1 : -1 )
         dispatch(sortByCityUp(newUsers, value))
     }
 
     if(value === 'cityCBA'){
-        let newUsers =(filtredUsers.length === 0 ? users: filtredUsers).sort((a,b) =>  a.location.city > b.location.city ? -1 : 1 )
+        newUsers =(whoNeedToSort).sort((a,b) =>  a.location.city > b.location.city ? -1 : 1 )
         dispatch(sortByCityDown(newUsers, value))
     }
     
     return (
-        <select name="select" className={style.sort} onChange={(e)=>setValue(e.target.value)}>
-            <option value="nameABC" selected>Name abc</option>
-            <option value="nameCBA" selected>Name cba</option>
+        <select name="select" className={style.sort} 
+        defaultValue={'DEFAULT'}
+        onChange={(e)=>setValue(e.target.value)}>
+            <option value="DEFAULT" disabled>Name</option>
+            <option value="nameABC" >Name abc</option>
+            <option value="nameCBA" >Name cba</option>
             <option value="ageUp" >Sort by age from lowest to highest </option>
             <option value="ageDown" >Sort by age from highest to lowest</option>
             <option value="cityABC">City abc</option>
