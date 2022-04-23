@@ -11,6 +11,9 @@ import { sortByAgeRange } from '../../../../redux/user-reducer';
 export const AgeSlider = () => {
 
     const users = useSelector(state => state.mainPage.users)
+    const filtredUsers = useSelector(state => state.mainPage.filtredUsers)
+    console.log(filtredUsers)
+
 
     const dispatch = useDispatch()
 
@@ -24,6 +27,10 @@ export const AgeSlider = () => {
 
     return (
         <div className={style.slider}>
+            <div>{filtredUsers.length === 0 ?
+                (<div className={style.text}>
+                    There are no users with this name or age
+                </div>) : false}</div>
             <div className={style.text}>Age</div>
             <Nouislider
                 range={{ min: 0, max: 50 }}
