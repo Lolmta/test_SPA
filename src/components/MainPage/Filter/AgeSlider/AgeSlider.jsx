@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Nouislider from "nouislider-react";
+import style from './AgeSlider.module.css'
 import './nouislider.css'
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,7 +24,7 @@ export const AgeSlider = () => {
     }, [minRange, maxRange])
 
     return (
-        <div>
+        <div className={style.slider}>
             <Nouislider
                 range={{ min: 0, max: 50 }}
                 start={[minRange, maxRange]}

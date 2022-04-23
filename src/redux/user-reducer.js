@@ -120,7 +120,7 @@ export const changeUsersPerPage = (amount) =>
 export const setGender = (gender) =>
 ({type:SET_GENGER, payload:gender})
 
-export const serchByName = (users) =>
+export const searchByName = (users) =>
 ({type:SERCH_BY_NAME, payload:users })
 
 export const sortByAgeUp = (newUsers, sort) =>

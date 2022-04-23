@@ -1,21 +1,19 @@
 import React from 'react'
-import style from './SelectSerch.module.css'
+import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { 
     sortByAgeUp,
-    sortByAgeDown, 
-    sortByNameDown, 
-    sortByNameUp,
+    sortByAgeDown,
     sortByCityUp,
-    sortByCityDown
+    sortByCityDown,
+    sortByNameUp,
+    sortByNameDown
 } from '../../../../redux/user-reducer'
-import { useDispatch } from 'react-redux'
+import style from './Select.module.css'
 
-
-const SelectSerch = () => {
-
-   const dispatch =useDispatch()
+const Select = () => {
+    const dispatch =useDispatch()
     const users = useSelector(state => state.mainPage.users)
     const filtredUsers = useSelector(state => state.mainPage.filtredUsers)
 
@@ -68,4 +66,4 @@ const SelectSerch = () => {
     )
 }
 
-export default SelectSerch
+export default Select

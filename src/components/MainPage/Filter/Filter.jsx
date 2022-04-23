@@ -1,32 +1,20 @@
 import React from 'react'
-import { setGender, serchByName } from '../../../redux/user-reducer'
-import { useDispatch } from 'react-redux'
 import style from './Filter.module.css'
 import { AgeSlider } from './AgeSlider/AgeSlider';
-import { SerchInput } from './SerchInput/SerchInput'
-import SelectSerch from './SelectSerch/SelectSerch'
+import SearchInput from './SearchInput/SearchInput';
+import Select from './Select/Select';
+import GenderSearch from './GendrSearch/GenderSearch';
 
 const Filter = () => {
-
-    const dispatch = useDispatch()
-    const setMale = () => dispatch(setGender('male'))
-    const setFemale = () => dispatch(setGender('female'))
-
-
     return (
         <div>
             <h1>Filter</h1>
             <div className={style.main}>
-                <SerchInput />
+                < SearchInput />
                 <AgeSlider />
-                <div>
-                    <button className={style.btn} onClick={setMale}>Male</button>
-                    <button className={style.btn} onClick={setFemale}>Female</button>
-                </div>
-                <SelectSerch />
+                <GenderSearch />
+                <Select />
             </div>
-
-
         </div>
     )
 }
