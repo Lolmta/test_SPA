@@ -1,18 +1,66 @@
-.btns{
+.btns {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.main{
+.main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Poppins';
 }
 
-.select{
+.select {
     width: 80px;
-padding: 14px;
-background: #FFFFFF;
-border: 1px solid #121212;
-box-sizing: border-box;
-border-radius: 12px;
+    height: 37px;
+    padding-left: 14px;
+    background: #FFFFFF;
+    border: 1px solid #121212;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.page {
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+    border: 1px solid #121212;
+    margin: 2px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.active {
+    background-color: #ECD3FA;
+    border-color: #52228C;
+    color: #52228C;
+}
+
+.prev {
+    height: 37px;
+    line-height: 37px;
+    border: 1px solid #121212;
+    margin: 2px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.prev::before {
+    content: '\2039';
+}
+
+.next {
+width: 108px;
+    height: 37px;
+    line-height: 37px;
+    border: 1px solid #121212;
+    margin: 2px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.next::after {
+    content: '\203A';
 }

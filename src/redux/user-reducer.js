@@ -12,6 +12,7 @@ const SORT_BY_CITY_UP = 'SORT_BY_CITY_UP'
 const SORT_BY_CITY_DOWN = 'SORT_BY_CITY_DOWN'
 const AGE_RANGE = 'AGE_RANGE'
 
+
 const initialState = {
     users:[],
     filtredUsers:[],
@@ -20,7 +21,7 @@ const initialState = {
     usersPerPage:50,
     maxUsers:500,
     gender:'male',
-    sort:'',
+    sort:''
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -40,7 +41,8 @@ const usersReducer = (state = initialState, action) => {
         case CHANGE_PAGE:
             return {
                 ...state,
-                page:action.payload
+                page:action.payload,
+                currentPage:action.payload
             }
         case CHANGE_USERS_PER_PAGE:
             return{
@@ -143,6 +145,7 @@ export const sortByCityDown = (newUsers, sort) =>
 
 export const sortByAgeRange = (newUsers) =>
 ({type:AGE_RANGE, payload:newUsers})
+
 
 
 
