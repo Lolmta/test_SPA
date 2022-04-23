@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setGender } from '../../../../redux/user-reducer'
 import style from './GenderSearch.module.css'
 
@@ -10,14 +10,18 @@ const GenderSearch = () => {
     const gender = useSelector(store => store.mainPage.gender)
 
     return (
-        <div className={style.main}>
-            <button className={gender === 'male' ?
-            [style.btn, style.active].join(' ') : style.btn } 
-            onClick={setMale}>Male</button>
-            <button className={gender === 'female' ?
-            [style.btn, style.active].join(' ') : style.btn } 
-            onClick={setFemale}>Female</button>
+        <div>
+            <div className={style.text}>Gender</div>
+            <div className={style.main}>
+                <button className={gender === 'male' ?
+                    [style.btn, style.active].join(' ') : style.btn}
+                    onClick={setMale}>Male</button>
+                <button className={gender === 'female' ?
+                    [style.btn, style.active].join(' ') : style.btn}
+                    onClick={setFemale}>Female</button>
+            </div>
         </div>
+
     )
 }
 

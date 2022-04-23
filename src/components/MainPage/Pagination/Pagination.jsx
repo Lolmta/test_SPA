@@ -1,8 +1,6 @@
 import React from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { changePage } from '../../../redux/user-reducer'
-
 import style from './Pagination.module.css'
 import PageSelect from './../PageSelect/PageSelect';
 
@@ -15,7 +13,7 @@ const Pagination = () => {
     const usersPerPage = useSelector(state => state.mainPage.usersPerPage)
     const maxUsers = useSelector(state => state.mainPage.maxUsers)
     const currentPage = useSelector(state => state.mainPage.page)
-    
+
     for (let i = 1; i < Math.ceil(maxUsers / usersPerPage); i++) {
         pageNumbers.push(i)
     }
@@ -45,16 +43,12 @@ const Pagination = () => {
                         if (number === currentPage - 1) return (
                             <div key={number}>
                                 <div onClick={() => paginate(number)}
-                                className={style.prev}>
-                                    Previous page
-                                </div>
+                                    className={style.prev}>Previous page</div>
                             </div>
                         )
-                    }
-                    )
-                }
+                    })}
             </div>
-            <PageSelect/>
+            <PageSelect />
         </div>
     )
 }

@@ -11,20 +11,20 @@ import { sortByAgeRange } from '../../../../redux/user-reducer';
 export const AgeSlider = () => {
 
     const users = useSelector(state => state.mainPage.users)
-    const filtredUsers = useSelector(state => state.mainPage.filtredUsers)
-  
+
     const dispatch = useDispatch()
 
     const [minRange, changeMinRange] = useState(0)
     const [maxRange, changeMaxRange] = useState(25)
 
     useEffect(() => {
-        let newU = users.filter(el => el.dob.age > minRange && el.dob.age < maxRange )
+        let newU = users.filter(el => el.dob.age > minRange && el.dob.age < maxRange)
         dispatch(sortByAgeRange(newU))
     }, [minRange, maxRange])
 
     return (
         <div className={style.slider}>
+            <div className={style.text}>Age</div>
             <Nouislider
                 range={{ min: 0, max: 50 }}
                 start={[minRange, maxRange]}
@@ -32,11 +32,11 @@ export const AgeSlider = () => {
                 onUpdate={(e) => {
                     changeMinRange(Number(e[0]));
                     changeMaxRange(Number(e[1]));
-                }}
-            />
+                }} />
             <div>
-            {filtredUsers.length === 0 ? (<div>No users found in this age category</div>) : false }
-                <div>{minRange} - {maxRange}</div>
+                <div className={style.age}>
+                    {minRange + ' - ' + maxRange}
+                </div>
             </div>
         </div>
 

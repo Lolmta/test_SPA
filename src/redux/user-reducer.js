@@ -42,12 +42,12 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 page:action.payload,
                 currentPage:action.payload
+
             }
         case CHANGE_USERS_PER_PAGE:
             return{
                 ...state,
                 usersPerPage:action.payload,
-                filtredUsers:[]
             }
         case SET_GENGER:
             return{

@@ -26,7 +26,8 @@ const List = () => {
   return (
     <div>
       <h1>List of users</h1>
-      {isFetching === false?(filtredUsers.length === 0 ? users: filtredUsers).map(user =><UserCard user={user} 
+      {isFetching === false?(filtredUsers.length === 0 ? 
+      users: filtredUsers).map(user =><UserCard user={user} 
       key = {user.login.salt}/>)
       :<div className={style.loading}>Loading...</div>}
      <Pagination/>

@@ -2,12 +2,25 @@ import React from 'react'
 import style from './UserCard.module.css'
 import { NavLink } from 'react-router-dom';
 import { setCurrentUser } from '../../../../redux/current-user-resucer';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'; 
+import { getDate } from '../../../../setDate';
 
 const UserCard = (props) => {
 
   let user = props.user;
   const dispatch = useDispatch()
+
+  const createUser = () => {
+    dispatch(setCurrentUser(
+      user.name.first + ' ' + user.name.last,
+      user.email,
+      user.cell,
+      user.location.street.name + ' ' + user.location.street.number,
+      user.location.city,
+      getDate(user.dob.date),
+      user.picture.large
+    ))
+  }
 
   return (
     <div className={style.card}>
@@ -21,7 +34,7 @@ const UserCard = (props) => {
             {user.name.first + ' ' + user.name.last}
           </h2>
           <div className={style.dob}>
-            {user.dob.date}
+            {getDate(user.dob.date)}
           </div>
           <div className={style.adress}>
             {user.location.city}
@@ -34,22 +47,11 @@ const UserCard = (props) => {
           </div>
         </div>
       </div>
-
-
       <NavLink to='/user'>
         <button className={style.btn}
-          onClick={() => dispatch(setCurrentUser(
-            user.name.first + ' ' + user.name.last,
-            user.email,
-            user.cell,
-            user.location.street.name + ' ' + user.location.street.number,
-            user.location.city,
-            user.dob.date,
-            user.picture.large
-          ))}>
+          onClick={createUser}>
           Edit</button>
       </NavLink>
-
     </div>
   )
 }

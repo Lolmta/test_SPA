@@ -19,18 +19,17 @@ const UserPage = () => {
 
     const user = useSelector(state => state.userPage)
     const userExist = useSelector(state => state.userPage.userExist)
+    console.log(user)
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
     return (
         <div className={style.main}>
-
-
             <div>
             <button onClick={() => navigate('/')}
-                        className={[style.btn,style.back].join(' ')}>
-                        Back</button>
+            className={[style.btn,style.back].join(' ')}>
+            Back</button>
             {userExist === true ? (
                 <div className={style.content}>
                     <div className={style.img_card}>
@@ -61,7 +60,6 @@ const UserPage = () => {
                     <h3>User has been deleted</h3>
                 </div>}
             </div>
-           
         </div>
     )
 }
